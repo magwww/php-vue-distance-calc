@@ -1,5 +1,9 @@
 <template>
-  <div>hello</div>
+  <div>
+    <GeoDistanceForm />
+  </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import GeoDistanceForm from './components/GeoDistanceForm.vue'
+</script>
