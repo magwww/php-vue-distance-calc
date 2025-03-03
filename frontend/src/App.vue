@@ -7,10 +7,10 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import GeoDistanceForm from './components/GeoDistanceForm.vue'
-import GeoDistanceResult from './components/GeoDistanceResult.vue'
-import { GeoDistanceService } from './services/GeoDistanceService'
-import { type GeoPoint, type DistanceResult } from './types/index'
+import GeoDistanceForm from '@/components/GeoDistanceForm.vue'
+import GeoDistanceResult from '@/components/GeoDistanceResult.vue'
+import { GeoDistanceService } from '@/services/GeoDistanceService'
+import { type GeoPoint, type DistanceResult } from '@/types/index'
 
 const distance = ref<DistanceResult | undefined>(undefined)
 

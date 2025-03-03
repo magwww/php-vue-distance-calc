@@ -1,4 +1,4 @@
-import { type GeoPoint } from '../types/index'
+import { type GeoPoint } from '@/types/index'
 
 export const GeoDistanceService = {
   async calculateDistance(points: { point1: GeoPoint; point2: GeoPoint }) {

@@ -14,7 +14,7 @@
   </form>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, defineEmits } from 'vue'
 
 const point1 = ref({ lat: '', lng: '' })

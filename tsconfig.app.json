@@ -6,7 +6,10 @@
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
 
     "paths": {
-      "@/*": ["./frontend/src/*"]
+      "@/*": ["./frontend/src/*"],
+      "@/types/*": ["./frontend/src/types/*"],
+      "@/services/*": ["./frontend/src/services/*"],
+      "@/components/*": ["./frontend/src/components/*"]
     }
   }
 }
