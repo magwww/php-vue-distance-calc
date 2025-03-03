@@ -1,17 +1,37 @@
 <template>
   <form @submit.prevent="onSubmit">
-    <div class="input-group">
-      <label>Point 1 📍</label>
+    <div>
+      <p>Point 1 📍</p>
       <div class="inputs">
-        <input v-model.number="point1.lat" placeholder="Latitude (e.g. 52.2298)" required />
-        <input v-model.number="point1.lng" placeholder="Longitude (e.g. 21.0122)" required />
+        <InputField
+          type="number"
+          v-model="point1.lat"
+          label="Latitude"
+          placeholder="e.g. 52.2298"
+        />
+        <InputField
+          type="number"
+          v-model="point1.lng"
+          label="Longitude"
+          placeholder="e.g. 21.0122"
+        />
       </div>
     </div>
-    <div class="input-group">
-      <label>Point 2 📍</label>
+    <div>
+      <p>Point 2 📍</p>
       <div class="inputs">
-        <input v-model.number="point2.lat" placeholder="Latitude (e.g. 41.9028)" required />
-        <input v-model.number="point2.lng" placeholder="Longitude (e.g. 12.4964)" required />
+        <InputField
+          type="number"
+          v-model="point2.lat"
+          label="Latitude"
+          placeholder="e.g. 41.9028"
+        />
+        <InputField
+          type="number"
+          v-model="point2.lng"
+          label="Longitude"
+          placeholder="e.g. 12.4964"
+        />
       </div>
     </div>
     <button type="submit">Calculate distance</button>
@@ -20,6 +40,7 @@
 
 <script setup lang="ts">
 import { ref, defineEmits } from 'vue'
+import InputField from '@/components/InputField.vue'
 
 const point1 = ref({ lat: '', lng: '' })
 const point2 = ref({ lat: '', lng: '' })
@@ -40,22 +61,9 @@ form {
   gap: 1.5rem;
 }
 
-.input-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
 .inputs {
   display: flex;
   gap: 1rem;
-}
-
-input {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 100%;
 }
 
 button {
