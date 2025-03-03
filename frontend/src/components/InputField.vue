@@ -1,17 +1,6 @@
-<template>
-  <div class="input-group">
-    <label>{{ label }}</label>
-    <input
-      :type="type"
-      :placeholder="placeholder"
-      :value="modelValue"
-      @input="$emit('update:modelValue', $event.target.value)"
-      required
-    />
-  </div>
-</template>
-
 <script setup lang="ts">
+import { defineProps, defineEmits } from 'vue'
+
 defineProps<{
   label: string
   placeholder: string
@@ -19,8 +8,24 @@ defineProps<{
   modelValue: string | number
 }>()
 
-defineEmits(['update:modelValue'])
+const emit = defineEmits<{
+  (e: 'update:modelValue', value: string | number): void
+}>()
+
+const handleInput = (event: Event) => {
+  const target = event.target as HTMLInputElement
+  if (target) {
+    emit('update:modelValue', target.value)
+  }
+}
 </script>
+
+<template>
+  <div class="input-group">
+    <label>{{ label }}</label>
+    <input :placeholder="placeholder" :value="modelValue" @input="handleInput" required />
+  </div>
+</template>
 
 <style scoped>
 .input-group {
