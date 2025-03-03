@@ -1,20 +1,20 @@
 <template>
   <form @submit.prevent="onSubmit">
     <div class="input-group">
-      <label>Punkt 1 📍</label>
+      <label>Point 1 📍</label>
       <div class="inputs">
-        <input v-model.number="point1.lat" placeholder="Szerokość (np. 52.2298)" required />
-        <input v-model.number="point1.lng" placeholder="Długość (np. 21.0122)" required />
+        <input v-model.number="point1.lat" placeholder="Latitude (e.g. 52.2298)" required />
+        <input v-model.number="point1.lng" placeholder="Longitude (e.g. 21.0122)" required />
       </div>
     </div>
     <div class="input-group">
-      <label>Punkt 2 📍</label>
+      <label>Point 2 📍</label>
       <div class="inputs">
-        <input v-model.number="point2.lat" placeholder="Szerokość (np. 41.9028)" required />
-        <input v-model.number="point2.lng" placeholder="Długość (np. 12.4964)" required />
+        <input v-model.number="point2.lat" placeholder="Latitude (e.g. 41.9028)" required />
+        <input v-model.number="point2.lng" placeholder="Longitude (e.g. 12.4964)" required />
       </div>
     </div>
-    <button type="submit">Oblicz odległość</button>
+    <button type="submit">Calculate distance</button>
   </form>
 </template>
 

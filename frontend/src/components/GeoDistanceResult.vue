@@ -1,7 +1,8 @@
 <template>
   <div v-if="distance">
-    <h3>Wynik:</h3>
-    <p>Odległość: {{ distance.km }} km {{ distance.m }} m</p>
+    <h3>
+      Result: <span>{{ distance.km }} km {{ distance.m }} m</span>
+    </h3>
   </div>
 </template>
 
