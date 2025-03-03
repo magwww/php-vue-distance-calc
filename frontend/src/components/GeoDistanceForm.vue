@@ -4,12 +4,14 @@
       <p>Point 1 📍</p>
       <div class="inputs">
         <InputField
+          name="latitude"
           type="number"
           v-model="point1.lat"
           label="Latitude"
           placeholder="e.g. 52.2298"
         />
         <InputField
+          name="longitude"
           type="number"
           v-model="point1.lng"
           label="Longitude"

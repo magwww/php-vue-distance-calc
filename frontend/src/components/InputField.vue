@@ -2,6 +2,7 @@
 import { defineProps, defineEmits } from 'vue'
 
 defineProps<{
+  name: string
   label: string
   placeholder: string
   type?: string
@@ -22,8 +23,16 @@ const handleInput = (event: Event) => {
 
 <template>
   <div class="input-group">
-    <label>{{ label }}</label>
-    <input :placeholder="placeholder" :value="modelValue" @input="handleInput" required />
+    <label v-if="label" :for="name">{{ label }}</label>
+    <input
+      :id="name"
+      :name="name"
+      :type="type || 'text'"
+      :placeholder="placeholder"
+      :value="modelValue"
+      @input="handleInput"
+      required
+    />
   </div>
 </template>
 
