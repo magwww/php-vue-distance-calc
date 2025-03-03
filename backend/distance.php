@@ -39,7 +39,13 @@ if ($lat1 === null || $lng1 === null || $lat2 === null || $lng2 === null) {
 }
 
 $distanceMeters = haversine($lat1, $lng1, $lat2, $lng2);
-$distanceKm = $distanceMeters / 1000;
+$response = [];
 
-echo json_encode(["m" => round($distanceMeters, 2), "km" => round($distanceKm, 2)]);
+if ($distanceMeters >= 1000) {
+    $response["km"] = round($distanceMeters / 1000, 2);
+} else {
+    $response["m"] = round($distanceMeters, 2);
+}
+
+echo json_encode($response);
 ?>

@@ -1,7 +1,12 @@
 <template>
   <div v-if="distance" class="result-container">
     <h3>
-      Result: <span>{{ distance.km }} km {{ distance.m }} m</span>
+      Result:
+      <p>
+        <span v-if="distance.m === 0">Points are the same.</span>
+        <span v-else-if="distance.km">{{ distance.km }} km</span>
+        <span v-else>{{ distance.m }} m</span>
+      </p>
     </h3>
   </div>
 </template>
