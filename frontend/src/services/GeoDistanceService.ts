@@ -1,5 +1,7 @@
+import { type GeoPoint } from '../types/index'
+
 export const GeoDistanceService = {
-  async calculateDistance(points) {
+  async calculateDistance(points: { point1: GeoPoint; point2: GeoPoint }) {
     try {
       const response = await fetch('http://localhost:8000/distance.php', {
         method: 'POST',
@@ -12,7 +14,7 @@ export const GeoDistanceService = {
       return await response.json()
     } catch (error) {
       console.error(error)
-      return { error: error.message }
+      return { error: error instanceof Error ? error.message : 'An unknown error occurred' }
     }
   },
 }
