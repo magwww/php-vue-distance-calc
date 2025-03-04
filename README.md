@@ -1,62 +1,82 @@
-# vue-php-distance-calc-app
+# 🌍 Vue + PHP Distance Calculator
 
-This template should help get you started developing with Vue 3 in Vite.
+Aplikacja do obliczania odległości między dwoma punktami geograficznymi, zbudowana w Vue 3 + Vite (frontend) oraz PHP (backend).
 
-## Recommended IDE Setup
+## 📚 Technologie
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+🟢 Frontend: Vue 3 + Vite + TypeScript  
+🟣 Backend: PHP  
+🔵 Testy jednostkowe: Vitest  
+🔴 Testy end-to-end: Cypress
 
-## Type Support for `.vue` Imports in TS
+## 🚀 Uruchamianie aplikacji
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+1. Sklonuj repozytorium:
 
 ```sh
-npm install
+git clone https://github.com/magwww/php-vue-distance-calc.git
+cd php-vue-distance-calc
 ```
 
-### Compile and Hot-Reload for Development
+2. Uruchomienie frontend (Vue 3)
+   Wymagania: Node.js (>=18), npm/yarn/pnpm
 
 ```sh
+cd frontend
+npm install
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+Aplikacja będzie dostępna na: http://localhost:5173
+
+3. Uruchomienie backend (PHP)
+   Wymagania: PHP 8.1+, serwer np. PHP Built-in
 
 ```sh
-npm run build
+cd backend
+php -S localhost:8000
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+Backend będzie dostępny na: http://localhost:8000
+
+## 🧪 Testowanie
+
+🔹 Testy jednostkowe (Vitest)
 
 ```sh
+cd frontend
 npm run test:unit
 ```
 
-### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
+🔹 Testy end-to-end (Cypress)
 
 ```sh
-npm run test:e2e:dev
+cd frontend
+npx cypress open
 ```
 
-This runs the end-to-end tests against the Vite development server.
-It is much faster than the production build.
+Cypress otworzy okno testowe, gdzie można uruchomić testy.
 
-But it's still recommended to test the production build with `test:e2e` before deploying (e.g. in CI environments):
+## 📜 API
 
-```sh
-npm run build
-npm run test:e2e
+| Metoda |   Endpoint    |                  Opis                   |
+| :----: | :-----------: | :-------------------------------------: |
+|  POST  | /distance.php | Oblicza odległość między dwoma punktami |
+
+🔹 Przykładowe zapytanie
+
+```json
+{
+  "point1": { "lat": 52.2298, "lng": 21.0122 },
+  "point2": { "lat": 41.9028, "lng": 12.4964 }
+}
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+🔹 Przykładowa odpowiedź
 
-```sh
-npm run lint
+```json
+{
+  "m": 1318702.21,
+  "km": 1318.7
+}
 ```
-# php-vue-distance-calc
