@@ -38,12 +38,12 @@
         />
       </div>
     </div>
-    <button type="submit">Calculate distance</button>
+    <button type="submit" :disabled="!isFormValid">Calculate distance</button>
   </form>
 </template>
 
 <script setup lang="ts">
-import { ref, defineEmits } from 'vue'
+import { ref, computed, defineEmits } from 'vue'
 import InputField from '@/components/InputField.vue'
 
 const point1 = ref({ lat: '', lng: '' })
@@ -51,7 +51,12 @@ const point2 = ref({ lat: '', lng: '' })
 
 const emit = defineEmits(['calculate'])
 
+const isFormValid = computed(() =>
+  [point1.value, point2.value].every((point) => Object.values(point).every(Boolean)),
+)
+
 const onSubmit = () => {
+  if (!isFormValid.value) return
   emit('calculate', { point1: point1.value, point2: point2.value })
 }
 </script>
