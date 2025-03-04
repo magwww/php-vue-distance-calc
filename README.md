@@ -1,25 +1,25 @@
 # 🌍 Vue + PHP Distance Calculator
 
-Aplikacja do obliczania odległości między dwoma punktami geograficznymi, zbudowana w Vue 3 + Vite (frontend) oraz PHP (backend).
+An application to calculate the distance between two geographical points, built in Vue 3 + Vite (frontend) and PHP (backend).
 
-## 📚 Technologie
+## 📚 Technologies
 
 🟢 Frontend: Vue 3 + Vite + TypeScript  
 🟣 Backend: PHP  
-🔵 Testy jednostkowe: Vitest  
-🔴 Testy end-to-end: Cypress
+🔵 Unit tests: Vitest  
+🔴 End-to-end tests: Cypress
 
-## 🚀 Uruchamianie aplikacji
+## 🚀 Running the application
 
-1. Sklonuj repozytorium:
+1. Clone the repository:
 
 ```sh
 git clone https://github.com/magwww/php-vue-distance-calc.git
 cd php-vue-distance-calc
 ```
 
-2. Uruchomienie frontend (Vue 3)
-   Wymagania: Node.js (>=18), npm/yarn/pnpm
+2. Running the frontend (Vue 3)
+   Requirements: Node.js (>=18), npm/yarn/pnpm
 
 ```sh
 cd frontend
@@ -27,43 +27,43 @@ npm install
 npm run dev
 ```
 
-Aplikacja będzie dostępna na: http://localhost:5173
+The application will be available at: http://localhost:5173
 
-3. Uruchomienie backend (PHP)
-   Wymagania: PHP 8.1+, serwer np. PHP Built-in
+3. Running the backend (PHP)
+   Requirements: PHP 8.1+, serwer np. PHP Built-in
 
 ```sh
 cd backend
 php -S localhost:8000
 ```
 
-Backend będzie dostępny na: http://localhost:8000
+Backend will be available at: http://localhost:8000
 
-## 🧪 Testowanie
+## 🧪 Testing
 
-🔹 Testy jednostkowe (Vitest)
+🔹 Unit Testing (Vitest)
 
 ```sh
 cd frontend
 npm run test:unit
 ```
 
-🔹 Testy end-to-end (Cypress)
+🔹 End-to-end Testing (Cypress)
 
 ```sh
 cd frontend
 npx cypress open
 ```
 
-Cypress otworzy okno testowe, gdzie można uruchomić testy.
+Cypress will open a test window where you can run tests.
 
 ## 📜 API
 
-| Metoda |   Endpoint    |                  Opis                   |
-| :----: | :-----------: | :-------------------------------------: |
-|  POST  | /distance.php | Oblicza odległość między dwoma punktami |
+| Method |   Endpoint    |                Description                 |
+| :----: | :-----------: | :----------------------------------------: |
+|  POST  | /distance.php | Calculates the distance between two points |
 
-🔹 Przykładowe zapytanie
+🔹 Sample query
 
 ```json
 {
@@ -72,7 +72,7 @@ Cypress otworzy okno testowe, gdzie można uruchomić testy.
 }
 ```
 
-🔹 Przykładowa odpowiedź
+🔹 Sample response
 
 ```json
 {
