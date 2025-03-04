@@ -43,7 +43,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, defineEmits } from 'vue'
+import { ref, computed } from 'vue'
 import InputField from '@/components/InputField.vue'
 
 const point1 = ref({ lat: '', lng: '' })
