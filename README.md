@@ -2,6 +2,10 @@
 
 An application to calculate the distance between two geographical points, built in Vue 3 + Vite (frontend) and PHP (backend).
 
+## 🥁 Live version
+
+Live version can be seen here: https://php-vue-distance-calc.vercel.app/
+
 ## 📚 Technologies
 
 🟢 Frontend: Vue 3 + Vite + TypeScript  
