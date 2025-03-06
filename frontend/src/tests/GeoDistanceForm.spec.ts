@@ -22,33 +22,33 @@ describe('GeoDistanceForm.vue', () => {
     const wrapper = mount(GeoDistanceForm)
     const inputFields = wrapper.findAllComponents(InputField)
 
-    await inputFields[0].setValue('52.2298')
-    await inputFields[1].setValue('21.0122')
-    await inputFields[2].setValue('41.9028')
-    await inputFields[3].setValue('12.4964')
+    await inputFields[0].setValue(52.2298)
+    await inputFields[1].setValue(21.0122)
+    await inputFields[2].setValue(41.9028)
+    await inputFields[3].setValue(12.4964)
 
-    expect(inputFields[0].props('modelValue')).toBe('52.2298')
-    expect(inputFields[1].props('modelValue')).toBe('21.0122')
-    expect(inputFields[2].props('modelValue')).toBe('41.9028')
-    expect(inputFields[3].props('modelValue')).toBe('12.4964')
+    expect(inputFields[0].props('modelValue')).toBe(52.2298)
+    expect(inputFields[1].props('modelValue')).toBe(21.0122)
+    expect(inputFields[2].props('modelValue')).toBe(41.9028)
+    expect(inputFields[3].props('modelValue')).toBe(12.4964)
   })
 
   it('emits "calculate" event with correct data on submit', async () => {
     const wrapper = mount(GeoDistanceForm)
 
     const inputFields = wrapper.findAllComponents(InputField)
-    await inputFields[0].setValue('52.2298')
-    await inputFields[1].setValue('21.0122')
-    await inputFields[2].setValue('41.9028')
-    await inputFields[3].setValue('12.4964')
+    await inputFields[0].setValue(52.2298)
+    await inputFields[1].setValue(21.0122)
+    await inputFields[2].setValue(41.9028)
+    await inputFields[3].setValue(12.4964)
 
     await wrapper.find('form').trigger('submit.prevent')
 
     expect(wrapper.emitted('calculate')).toHaveLength(1)
     expect(wrapper.emitted('calculate')![0]).toEqual([
       {
-        point1: { lat: '52.2298', lng: '21.0122' },
-        point2: { lat: '41.9028', lng: '12.4964' },
+        point1: { lat: 52.2298, lng: 21.0122 },
+        point2: { lat: 41.9028, lng: 12.4964 },
       },
     ])
   })

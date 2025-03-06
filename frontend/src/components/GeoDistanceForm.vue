@@ -46,8 +46,8 @@
 import { ref, computed } from 'vue'
 import InputField from '@/components/InputField.vue'
 
-const point1 = ref({ lat: '', lng: '' })
-const point2 = ref({ lat: '', lng: '' })
+const point1 = ref<{ lat: number | null; lng: number | null }>({ lat: null, lng: null })
+const point2 = ref<{ lat: number | null; lng: number | null }>({ lat: null, lng: null })
 
 const emit = defineEmits(['calculate'])
 
