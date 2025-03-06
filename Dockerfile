@@ -1,4 +1,4 @@
 FROM php:8.2-cli
-COPY . /usr/src/myapp
+COPY . .
 WORKDIR /usr/src/myapp
-CMD [ "php", "./backend/distance.php" ]
+CMD ["php", "-S", "0.0.0.0:10000", "-t", "backend"]
