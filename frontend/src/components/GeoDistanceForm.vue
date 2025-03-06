@@ -4,15 +4,19 @@
       <p>Point 1 📍</p>
       <div class="inputs">
         <InputField
-          name="latitude"
+          name="point1-latitude"
           type="number"
+          min="-90"
+          max="90"
           v-model="point1.lat"
           label="Latitude"
           placeholder="e.g. 52.2298"
         />
         <InputField
-          name="longitude"
+          name="point1-longitude"
           type="number"
+          min="-180"
+          max="180"
           v-model="point1.lng"
           label="Longitude"
           placeholder="e.g. 21.0122"
@@ -23,15 +27,19 @@
       <p>Point 2 📍</p>
       <div class="inputs">
         <InputField
-          name="latitude"
+          name="point2-latitude"
           type="number"
+          min="-90"
+          max="90"
           v-model="point2.lat"
           label="Latitude"
           placeholder="e.g. 41.9028"
         />
         <InputField
-          name="longitude"
+          name="point2-longitude"
           type="number"
+          min="-180"
+          max="180"
           v-model="point2.lng"
           label="Longitude"
           placeholder="e.g. 12.4964"
