@@ -56,7 +56,7 @@ npm run test:unit
 
 ```sh
 cd frontend
-npx cypress open
+npx cypress open --project frontend
 ```
 
 Cypress will open a test window where you can run tests.
