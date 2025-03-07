@@ -39,4 +39,24 @@ describe('Distance Calculation App', () => {
 
     cy.get('.result-container').should('contain.text', 'Points are the same.')
   })
+
+  it("should display loader when request hasn't finished", () => {
+    cy.intercept('POST', '**/distance.php', (req) => {
+      req.continue((res) => {
+        res.delay = 2000
+      })
+    }).as('getDistance')
+
+    cy.get('input[name="point1-latitude"]').type('52.246280')
+    cy.get('input[name="point1-longitude"]').type('21.084895')
+    cy.get('input[name="point2-latitude"]').type('52.235951')
+    cy.get('input[name="point2-longitude"]').type('21.084010')
+    cy.get('[data-testid="calculate-button"]').click()
+
+    cy.get('[data-testid="loader"]').should('be.visible')
+
+    cy.wait('@getDistance')
+
+    cy.get('[data-testid="loader"]').should('not.exist')
+  })
 })

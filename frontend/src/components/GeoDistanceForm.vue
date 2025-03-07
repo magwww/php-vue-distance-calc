@@ -46,7 +46,9 @@
         />
       </div>
     </div>
-    <button type="submit" :disabled="!isFormValid">Calculate distance</button>
+    <button type="submit" data-testid="calculate-button" :disabled="!isFormValid">
+      Calculate distance
+    </button>
   </form>
 </template>
 

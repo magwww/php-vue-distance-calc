@@ -2,7 +2,8 @@
   <div class="container animate-in">
     <h1>Calculate distance</h1>
     <GeoDistanceForm @calculate="calculateDistance" />
-    <GeoDistanceResult :distance="distance" />
+    <LoaderComponent v-if="loading" />
+    <GeoDistanceResult v-else-if="distance" :distance="distance" />
   </div>
 </template>
 
@@ -10,13 +11,17 @@
 import { ref } from 'vue'
 import GeoDistanceForm from '@/components/GeoDistanceForm.vue'
 import GeoDistanceResult from '@/components/GeoDistanceResult.vue'
+import LoaderComponent from '@/components/LoaderComponent.vue'
 import { GeoDistanceService } from '@/services/GeoDistanceService'
 import { type GeoPoint, type DistanceResult } from '@/types/index'
 
 const distance = ref<DistanceResult | undefined>(undefined)
+const loading = ref<boolean>(false)
 
 const calculateDistance = async (points: { point1: GeoPoint; point2: GeoPoint }) => {
+  loading.value = true
   distance.value = await GeoDistanceService.calculateDistance(points)
+  loading.value = false
 }
 </script>
 
