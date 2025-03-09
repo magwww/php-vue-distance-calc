@@ -4,18 +4,18 @@ defineProps<{
   label: string
   placeholder: string
   type?: string
-  modelValue: string | number | null
+  modelValue: number | null
+  error?: string
+  touch?: () => void
 }>()
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: string | number): void
+  (e: 'update:modelValue', value: number | null): void
 }>()
 
 const handleInput = (event: Event) => {
   const target = event.target as HTMLInputElement
-  if (target) {
-    emit('update:modelValue', target.value)
-  }
+  emit('update:modelValue', target.value ? Number(target.value) : null)
 }
 </script>
 
@@ -29,8 +29,9 @@ const handleInput = (event: Event) => {
       :placeholder="placeholder"
       :value="modelValue"
       @input="handleInput"
-      required
+      @blur="touch?.()"
     />
+    <p v-if="error" class="error">{{ error }}</p>
   </div>
 </template>
 
@@ -47,5 +48,10 @@ input {
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 100%;
+}
+
+.error {
+  color: red;
+  font-size: 0.875rem;
 }
 </style>
