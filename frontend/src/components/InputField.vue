@@ -4,18 +4,24 @@ defineProps<{
   label: string
   placeholder: string
   type?: string
-  modelValue: number | null
+  modelValue: number | string | null
   error?: string
   touch?: () => void
 }>()
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: number | null): void
+  (e: 'update:modelValue', value: number | string | null): void
 }>()
 
 const handleInput = (event: Event) => {
   const target = event.target as HTMLInputElement
-  emit('update:modelValue', target.value ? Number(target.value) : null)
+  let value: number | string | null = target.value === '' ? null : target.value
+
+  if (target.type === 'number' && value !== null) {
+    value = Number(value)
+  }
+
+  emit('update:modelValue', value)
 }
 </script>
 

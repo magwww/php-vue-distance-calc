@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { mount } from '@vue/test-utils'
+import { flushPromises, mount } from '@vue/test-utils'
 import GeoDistanceForm from '@/components/GeoDistanceForm.vue'
 import InputField from '@/components/InputField.vue'
 
@@ -43,6 +43,8 @@ describe('GeoDistanceForm.vue', () => {
     await inputFields[3].setValue(12.4964)
 
     await wrapper.find('form').trigger('submit.prevent')
+
+    await flushPromises()
 
     expect(wrapper.emitted('calculate')).toHaveLength(1)
     expect(wrapper.emitted('calculate')![0]).toEqual([
